@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>簡單履歷 - AU114001001</title>
+  <style>
+    :root{--bg:#f6f8fb;--card:#ffffff;--text:#1a202c;--muted:#6b7280;--accent:#0ea5a4}
+    [data-theme="dark"]{--bg:#0b1020;--card:#0f1724;--text:#e6eef8;--muted:#9aa6bf;--accent:#34d399}
+    *{box-sizing:border-box}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",Helvetica,Arial;line-height:1.4;margin:0;background:linear-gradient(180deg,var(--bg),#fff);color:var(--text);padding:24px}
+    .wrap{max-width:900px;margin:0 auto}
+
+    .card{background:var(--card);border-radius:12px;padding:24px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+    header{display:flex;gap:20px;align-items:center}
+    .avatar{width:96px;height:96px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#60a5fa);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:20px}
+    h1{margin:0;font-size:22px}
+    .meta{color:var(--muted);margin-top:6px}
+
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px;margin-top:18px}
+    aside{padding:16px;border-radius:8px;background:rgba(0,0,0,0.02)}
+    .section{margin-bottom:14px}
+    .section h3{margin:0 0 8px 0;font-size:13px;color:var(--muted);letter-spacing:0.6px}
+    ul{padding-left:16px;margin:6px 0}
+    li{margin-bottom:6px}
+
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{padding:6px 8px;border-radius:999px;background:rgba(0,0,0,0.04);font-size:13px}
+
+    .controls{display:flex;gap:8px;margin-bottom:12px}
+    button{border:0;padding:8px 12px;border-radius:8px;cursor:pointer;background:var(--accent);color:white}
+    button.secondary{background:transparent;color:var(--accent);border:1px solid rgba(0,0,0,0.06)}
+
+    /* responsive */
+    @media (max-width:760px){.grid{grid-template-columns:1fr;}.avatar{width:72px;height:72px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="controls">
+      <button id="toggleTheme">切換深色/淺色</button>
+      <button id="printBtn" class="secondary">列印</button>
+      <button id="downloadBtn" class="secondary">下載 HTML</button>
+    </div>
+
+    <div class="card">
+      <header>
+        <div class="avatar">AU<br>1140</div>
+        <div>
+          <h1>學生 AU114001001</h1>
+          <div class="meta">學號：<strong>AU114001001</strong>  • 電子郵件：<em>you@example.com</em>  • 電話：<em>+886-9xx-xxx-xxx</em></div>
+        </div>
+      </header>
+
+      <div class="grid">
+        <main>
+          <section class="section">
+            <h3>自我介紹</h3>
+            <p>有責任感的學生，樂於學習系統管理與程式開發。習慣用實作與小專案練習技能，擅長在限制環境下排解問題。</p>
+          </section>
+
+          <section class="section">
+            <h3>專案經驗</h3>
+            <article>
+              <strong>個人作品：簡易部落格系統</strong>
+              <div class="meta">2025/06 — 2025/07</div>
+              <p>使用 HTML/CSS/JavaScript 搭配簡易伺服器，完成文章的新增、編輯與刪除。負責前端與部署流程。</p>
+            </article>
+            <article>
+              <strong>練習：ELK 日誌整合</strong>
+              <div class="meta">2025/03</div>
+              <p>在虛擬機環境上部署 Elasticsearch / Logstash / Kibana，將 Nginx 日誌送入分析平台。</p>
+            </article>
+          </section>
+
+          <section class="section">
+            <h3>教育背景</h3>
+            <p><strong>某某大學 / 科系</strong>（在學）</p>
+            <p class="meta">預計畢業：2026</p>
+          </section>
+
+          <section class="section">
+            <h3>證照或課程</h3>
+            <ul>
+              <li>Linux 系統管理入門</li>
+              <li>版本控制（Git）實務</li>
+            </ul>
+          </section>
+        </main>
+
+        <aside>
+          <section class="section">
+            <h3>技能</h3>
+            <div class="skills">
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+              <span class="chip">Git</span>
+              <span class="chip">Linux</span>
+              <span class="chip">Docker</span>
+            </div>
+          </section>
+
+          <section class="section">
+            <h3>語言</h3>
+            <ul>
+              <li>中文（母語）</li>
+              <li>英文（基礎閱讀）</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h3>興趣</h3>
+            <p>自動化、開源專案、桌面遊戲</p>
+          </section>
+
+          <section class="section">
+            <h3>快速操作</h3>
+            <p class="meta">點選右上按鈕可列印或下載 HTML 檔案；請先填入你的 email 與電話以利聯絡。</p>
+          </section>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('toggleTheme');
+    const printBtn = document.getElementById('printBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+
+    btn.addEventListener('click', ()=>{
+      const cur = document.documentElement.getAttribute('data-theme');
+      if(cur === 'dark') document.documentElement.removeAttribute('data-theme');
+      else document.documentElement.setAttribute('data-theme','dark');
+    });
+
+    printBtn.addEventListener('click', ()=> window.print());
+
+    downloadBtn.addEventListener('click', ()=>{
+      const html = '<!doctype html>\n' + document.documentElement.innerHTML;
+      const blob = new Blob([html],{type:'text/html;charset=utf-8'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'resume_AU114001001.html';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    });
+  </script>
+</body>
+</html>
